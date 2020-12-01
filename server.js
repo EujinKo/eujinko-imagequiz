@@ -22,10 +22,10 @@ app.get('/',(request,response)=>{
 });
 app.get('/quizzes',(request,response) => {
     let metadata = data.quizzes.map(x => {
-        return {name: x.name, id:x.id, picture: x.picture};
+        return {number: x.number, quizzes:x.quizzes};
     })
-    response.json(data.quizzes);   
-    // response.json(metadata);    
+    // response.json(data.quizzes);   
+    response.json(metadata);    
 });
 
 
