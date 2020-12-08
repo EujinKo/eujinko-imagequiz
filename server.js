@@ -37,6 +37,12 @@ app.get('/score',(request,response)=>{
     response.json({message:'The score saved successfully'});
 });
 
+app.get('/scores',(request,response)=>{
+    let metadata = data.scores.map(x => {
+        return {username: x.username, quizid:x.quizid, score:x.score};
+    })
+});
+
 app.get('/quiz/:id',(request,response)=>{
     let searchFor = request.params.id;
     data.quizzes.map(x=>{
