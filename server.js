@@ -38,9 +38,7 @@ app.get('/score',(request,response)=>{
 });
 
 app.get('/scores',(request,response)=>{
-    let metadata = data.scores.map(x => {
-        return {username: x.username, quizid:x.quizid, score:x.score};
-    })
+    response.json(data.scores);
 });
 
 app.get('/quiz/:id',(request,response)=>{
