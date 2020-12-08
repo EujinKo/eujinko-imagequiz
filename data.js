@@ -128,7 +128,10 @@ let quiz4 = {
 
 let quizzes = [quiz1,quiz2,quiz3,quiz4];
 
-let scores = [];
+let scores = [{quizid:0,score:0},
+    {quizid:1,score:0},
+    {quizid:2,score:0},
+    {quizid:3,score:0}];
 
 
 module.exports.scores = scores;

@@ -51,10 +51,10 @@ app.get('/scores',(request,response)=>{
     response.json(data.scores);
 });
 
-app.get('/scores/:id',(request,response)=>{
-    let searchFor = request.params.id;
+app.get('/scores/:quizid',(request,response)=>{
+    let searchFor = request.params.quizid;
     data.scores.map(x=>{
-        if(searchFor == x.number){
+        if(searchFor == x.quizid){
             response.json(x);
         }
     });
