@@ -30,9 +30,9 @@ app.get('/quizzes',(request,response) => {
 
 
 app.get('/score',(request,response)=>{
-    let username = request.body.username;
-    let quizid = request.body.quizid;
-    let score = request.body.score;
+    let username = request.query.username;
+    let quizid = request.query.quizid;
+    let score = request.query.score;
     data.scores.push({score: score, quizid:quizid,username:username});
     response.json({message:'The score saved successfully'});
 });
