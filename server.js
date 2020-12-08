@@ -51,6 +51,18 @@ app.get('/scores',(request,response)=>{
     response.json(data.scores);
 });
 
+app.get('/scores/:id',(request,response)=>{
+    let searchFor = request.params.id;
+    data.scores.map(x=>{
+        if(searchFor == x.number){
+            response.json(x);
+        }
+    });
+    response.status(404).json({error:`The place ${searchFor} could not be found.`});
+   
+});
+
+
 app.get('/quiz/:id',(request,response)=>{
     let searchFor = request.params.id;
     data.quizzes.map(x=>{
