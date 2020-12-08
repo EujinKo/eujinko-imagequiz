@@ -30,10 +30,20 @@ app.get('/quizzes',(request,response) => {
 
 
 app.post('/score',(request,response)=>{
-    let username = request.body.username;
     let quizid = request.body.quizid;
     let score = request.body.score;
-    data.scores.push({score: score, quizid:quizid,username:username});
+
+    let trig = false;
+    data.scores.map(x=>{
+        if(request.body.quizid == x.quizid){
+            data.scores.quizid = request.body.score;
+            trig = true;
+        }
+    });
+    if(!trig){
+        data.scores.push({quizid:quizid, score: score});
+    }
+    
     response.json({message:'The score saved successfully'});
 });
 
