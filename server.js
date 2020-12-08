@@ -30,15 +30,13 @@ app.get('/quizzes',(request,response) => {
 
 
 app.post('/score',(request,response)=>{
-    let searchFor = request.params.quizid;
     let quizid = request.body.quizid;
     let score = request.body.score;
 
     let trig = false;
     data.scores.map(x=>{
-        if(searchFor == x.quizid){
+        if(request.body.quizid == x.quizid){
             x.score = request.body.score;
-            
             trig = true;
         }
     });
